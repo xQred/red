@@ -1,1 +1,1 @@
-fuck u niggas
+fuck u 
