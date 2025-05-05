@@ -1,0 +1,33 @@
+DES
+
+!pip install pyDes
+from pyDes import des, CBC, PAD_PKCS5
+import binascii
+
+# Define key and IV (must be 8 bytes)
+key = b"01234567"  # 8-byte key
+iv = b"12345678"   # 8-byte IV
+
+# Data to encrypt
+data = "Hello123"
+
+# Create DES cipher object
+cipher = des(key, CBC, iv, pad=None, padmode=PAD_PKCS5)
+
+# Encrypt the data
+encrypted_data = cipher.encrypt(data)
+
+# Convert to hexadecimal for display
+hex_encrypted_data = binascii.hexlify(encrypted_data)
+print("Encrypted data:", hex_encrypted_data.decode())
+
+# ---- Decryption ----
+
+# Convert from hexadecimal to binary
+encrypted_data = binascii.unhexlify(hex_encrypted_data)
+
+# Decrypt the data
+decrypted_data = cipher.decrypt(encrypted_data)
+
+# Show the decrypted result
+print("Decrypted data:", decrypted_data.decode())
