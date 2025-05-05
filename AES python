@@ -1,0 +1,25 @@
+AES
+
+!pip install pycryptodome
+
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+import base64
+
+# Pad to multiple of 16 bytes
+def pad(s): return s + (16 - len(s) % 16) * ' '
+
+key = get_random_bytes(16)  # AES-128
+cipher = AES.new(key, AES.MODE_ECB)
+
+data = "Hello world"
+padded = pad(data)
+
+# Encrypt
+encrypted = cipher.encrypt(padded.encode())
+print("Encrypted (base64):", base64.b64encode(encrypted))
+
+# Decrypt
+decipher = AES.new(key, AES.MODE_ECB)
+decrypted = decipher.decrypt(encrypted).decode().strip()
+print("Decrypted:", decrypted)
