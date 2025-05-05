@@ -13,36 +13,22 @@ print("".join(
  
  
 complex.....................  
-s = input() 
- 
-k = int(input()) 
- 
-def caesar_char(c, k): 
-    
-    if c.isupper(): 
- 
-        return chr((ord(c) - ord('A') + k) % 26 + ord('A')) 
- 
-    elif c.islower(): 
- 
-        return chr((ord(c) - ord('a') + k) % 26 + ord('a')) 
- 
-    else: 
- 
-        return c 
- 
- 
-print("".join(caesar_char(c, k) for c in s)) 
- 
-FOR OUTPUT:(example) 
-HELLO 
-3 
- 
-//YOU GET: 
-KHOOR 
- 
- 
- 
+
+......................................................................................................................................
+s = input()
+k = int(input())
+
+def caesar_char(c, k):
+    if c.isupper():
+        return chr((ord(c) - ord('A') + k) % 26 + ord('A'))
+    elif c.islower():
+        return chr((ord(c) - ord('a') + k) % 26 + ord('a'))
+    else:
+        return c
+
+encrypted = "".join(caesar_char(c, k) for c in s)
+print(encrypted)
+ ....................................................................................................................................................
 JAVA 
  
 Easy.......................
