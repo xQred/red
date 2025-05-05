@@ -22,4 +22,4 @@ print("Encrypted (base64):", base64.b64encode(encrypted))
 # Decrypt
 decipher = AES.new(key, AES.MODE_ECB)
 decrypted = decipher.decrypt(encrypted).decode().strip()
-print("Decrypted:", decrypted)
+print("Decrypted:", decrypted)
